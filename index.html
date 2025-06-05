@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Markdown to PDF/DOCX Web Component</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+    <script src="./src/html2docx.min.js"></script>
+    <script type="module" src="./src/md_2_pdf_doc.js"></script>
+</head>
+<body>
+    <button class="md-2-pdf">Scarica PDF</button>
+    <button class="md-2-docx">Scarica DOCX</button>
+    <br/>
+    <br/>
+    <div>
+        <label for="markdown-input">Inserisci il testo Markdown:</label><br/>
+        <textarea class="md" rows="10" cols="50" style="width: 100%; height: 300px;">
+# Titolo Principale
+## Sottotitolo
+Questo è un paragrafo con **grassetto** e *corsivo*.
+
+- Elemento 1
+- Elemento 2
+
+> Citazione di esempio
+
+| Colonna 1 | Colonna 2 |
+|-----------|-----------|
+| Dato 1    | Dato 2    |
+        </textarea>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            document.querySelector('.md-2-pdf').addEventListener('click', async () => {            
+                const text = document.querySelector('textarea').value
+                console.log(text);
+                await window.Md2PdfDoc.DownloadPDF(text, "test.pdf");
+            }); 
+            document.querySelector('.md-2-docx').addEventListener('click', async () => {
+                const text = document.querySelector('textarea').value
+                console.log(text);
+                await window.Md2PdfDoc.DownloadDOCX(text, "test.docx");
+            }); 
+
+
+            
+
+        });
+     </script>   
+</body>
+</html>

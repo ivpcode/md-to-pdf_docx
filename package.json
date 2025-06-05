@@ -1,0 +1,37 @@
+{
+  "name": "vite-app",
+  "version": "1.0.0",
+  "description": "A Vite.js project with support for older browsers.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "html2pdf.js": "^0.10.3",
+    "marked": "^15.0.12"
+  },
+  "devDependencies": {
+    "vite": "^4.0.0",
+    "vite-plugin-legacy": "^2.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "vite": {
+    "plugins": [
+      {
+        "name": "vite-plugin-legacy",
+        "options": {
+          "targets": [
+            "defaults",
+            "not IE 11"
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,2 +1,1 @@
-# md-to-pdf_docx
-REpo di un webcomponent che trasforma markdown in pdf o docx
+Testbed per libreria che downloada pdf e docx
